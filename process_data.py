@@ -9,10 +9,8 @@ json_data = [] # array of docs
 with open(INPUT_FILE, 'r', encoding='utf8') as f:
     json_data = json.loads(f.read())
 
-# 114 surahs, each is a list of ayahs
-output = []
-for i in range(114):
-    output.append([])
+# 604 pages, each with a list of ayaat. Page ZERO is empty.
+output = [[]]
 
 for entry in json_data:
     if entry != {}: # dunno why first item is this
@@ -20,15 +18,17 @@ for entry in json_data:
         ayah_number = int(entry["numberInSurah"])
         arabic = entry["uthmaniText"]
         page_number = int(entry["page"])
+
+        if page_number >= len(output):
+            output.append([]) # new page
         
         doc = {
+            "surah_number": surah_number,
             "ayah_number": ayah_number,
-            "page_number": page_number,
             "arabic": arabic
         }
 
-        # -1: array is base 0, surah is base 1
-        output[surah_number - 1].append(doc)
+        output[page_number].append(doc)
 
 output_text = json.dumps(output, ensure_ascii=False)
 
