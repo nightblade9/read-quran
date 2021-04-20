@@ -11,6 +11,7 @@ config_version=4
 [application]
 
 config/name="Read Qur'an"
+run/main_scene="res://scenes/HomeScreen.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -20,6 +21,10 @@ window/size/height=960
 window/handheld/orientation="portrait"
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
+
+[gui]
+
+theme/custom_font="res://theme/DefaultFont.tres"
 
 [physics]
 
