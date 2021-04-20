@@ -10,5 +10,7 @@ Android/web/desktop app to read Qur'an.
 Note: this app is only for *reading*. It doesn't include:
 
 - Listening to recitations
+- Translations
 - Search
+- Tafseer
 - Other advanced features
