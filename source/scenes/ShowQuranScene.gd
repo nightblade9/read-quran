@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 const ALabel = preload("res://addons/arabic-text/ALabel.gd")
 
@@ -21,9 +21,8 @@ func _ready():
 		arabic_label.arabic_input = ayah["arabic"]
 		
 		_ayaat_container.add_child(hbox)
-
-	remove_child(_template)
-	_ayaat_container.update()
+	
+	_template.queue_free()
 
 # Called before ready
 func setup_surah(surah_number:int) -> void:
