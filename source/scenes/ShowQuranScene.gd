@@ -3,7 +3,7 @@ extends Control
 const ALabel = preload("res://addons/arabic-text/ALabel.gd")
 
 const _PAGES_DATA = "res://data/pages.json"
-onready var _template = $TemplateHBox
+onready var _template = $Template
 onready var _ayaat_container = $VBoxContainer
 
 var _page:Array = [] # Page data, list of ayaat
@@ -17,10 +17,10 @@ func _ready():
 		var hbox = _template.duplicate()
 		hbox.visible = true
 		
-		var number_label = hbox.get_node("NumberLabel")
+		var number_label =   hbox.get_node("TemplateHBox/NumberLabel")
 		number_label.text = "(%s)" % ayah["ayah_number"]
 		
-		var arabic_label = _template.get_node("ArabicLabel")
+		var arabic_label = _template.get_node("TemplateHBox/ArabicLabel")
 		arabic_label.arabic_input = ayah["arabic"]
 		
 		_ayaat_container.add_child(hbox)
