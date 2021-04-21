@@ -3,7 +3,7 @@ extends Node2D
 const ALabel = preload("res://addons/arabic-text/ALabel.gd")
 
 const _PAGES_DATA = "res://data/pages.json"
-onready var _template_label = $TemplateLabel
+onready var _template = $TemplateHBox
 onready var _ayaat_container = $VBoxContainer
 
 var _page:Array = [] # Page data, list of ayaat
@@ -11,18 +11,19 @@ var _page:Array = [] # Page data, list of ayaat
 func _ready():
 	for ayah in _page:
 		
-		var hbox = HBoxContainer.new()
+		var hbox = _template.duplicate()
+		hbox.visible = true
 		
-		var label = Label.new()
-		label.text = "(%s)" % ayah["ayah_number"]
-		hbox.add_child(label)
+		var number_label = hbox.get_node("NumberLabel")
+		number_label.text = "(%s)" % ayah["ayah_number"]
 		
-		var alabel = _template_label.duplicate()
-		alabel.visible = true
-		alabel.arabic_input = ayah["arabic"]
-		hbox.add_child(alabel)
+		var arabic_label = _template.get_node("ArabicLabel")
+		arabic_label.arabic_input = ayah["arabic"]
 		
 		_ayaat_container.add_child(hbox)
+
+	remove_child(_template)
+	_ayaat_container.update()
 
 # Called before ready
 func setup_surah(surah_number:int) -> void:
