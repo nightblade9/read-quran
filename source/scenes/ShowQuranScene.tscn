@@ -31,7 +31,6 @@ __meta__ = {
 }
 
 [node name="TemplateHBox" type="HBoxContainer" parent="."]
-visible = false
 margin_right = 540.0
 margin_bottom = 88.0
 __meta__ = {
@@ -40,21 +39,22 @@ __meta__ = {
 
 [node name="NumberLabel" type="Label" parent="TemplateHBox"]
 margin_right = 86.0
-margin_bottom = 88.0
+margin_bottom = 173.0
+size_flags_vertical = 5
 text = "(1)"
 
 [node name="ArabicLabel" type="Label" parent="TemplateHBox"]
 margin_left = 90.0
-margin_top = 1.0
 margin_right = 540.0
-margin_bottom = 86.0
+margin_bottom = 173.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/font = SubResource( 1 )
-text = "ﻢِﻴَٰﺣۡﺮَّﻟﭐ ﻦِﻤَٰﺣۡﺮَّﻟﭐ ﻪِﻠَّﻟﭐ ﻢِﺴۡﺑِ"
+text = "ﻢِﻴَٰﺣۡﺮَّﻟﭐ ﻦِﻤَٰﺣۡﺮَّﻟﭐ ﻪِﻠَّﻟﭐ ﻢِﺴۡﺑِ
+ﻢِﻴَٰﺣۡﺮَّﻟﭐ ﻦِﻤَٰﺣۡﺮَّﻟﭐ ﻪِﻠَّﻟﭐ ﻢِﺴۡﺑِ"
 autowrap = true
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-arabic_input = "بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ"
+arabic_input = "بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ"

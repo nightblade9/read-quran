@@ -9,6 +9,9 @@ onready var _ayaat_container = $VBoxContainer
 var _page:Array = [] # Page data, list of ayaat
 
 func _ready():
+	remove_child(_template)
+	_template.visible = false
+	
 	for ayah in _page:
 		
 		var hbox = _template.duplicate()
@@ -23,6 +26,7 @@ func _ready():
 		_ayaat_container.add_child(hbox)
 	
 	_template.queue_free()
+	_ayaat_container.remove_child(_ayaat_container.get_child(0))
 
 # Called before ready
 func setup_surah(surah_number:int) -> void:
