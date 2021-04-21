@@ -13,5 +13,7 @@ func _on_GoPageButton_input_event(_viewport, event, _shape_idx):
 			scene.setup_page(page_number)
 			get_tree().change_scene_to(scene)
 	
-func show_surah(surah_number) -> void:
-	pass
+func show_surah(surah_number:int) -> void:
+	var scene = ShowQuranScene.instance()
+	scene.setup_surah(surah_number)
+	get_tree().change_scene_to(scene)
