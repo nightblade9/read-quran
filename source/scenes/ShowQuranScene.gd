@@ -1,9 +1,14 @@
 extends Node2D
 
 const PAGES_DATA = "res://data/pages.json"
-var _page:Array # Page JSON data: array of ayaat
 
-onready var _alabel = $ALabel
+var _page:Array = [] # Page data, list of ayaat
+
+func _ready():
+	var arabic = ""
+	for ayah in _page:
+		arabic += ayah["arabic"] + "?"
+	$ALabel.arabic_input = arabic
 
 # Called before ready
 func setup_surah(surah_number:int) -> void:
@@ -16,22 +21,12 @@ func setup_surah(surah_number:int) -> void:
 				print("It's page %s" % page_number)
 				_page = page
 	
-	# NOW: collect all pages' ayaat for this surah
+	# TODO: collect all pages' ayaat for this surah
 
 # Called before ready
 func setup_page(page_number:int) -> void:
 	var json_data = _parse_data()
 	_page = json_data[page_number]
-
-func _ready():
-	# TODO: un-hardcode when you fix scene changes
-	_page = _parse_data()[165]
-	
-	var text = ""
-	for ayah in _page:
-		text = "%s\n%s\n%s" % [text, ayah["arabic"], ayah["ayah_number"]]
-	
-	$ALabel.arabic_input = text
 
 func _parse_data():
 	# TODO: singleton I guess
