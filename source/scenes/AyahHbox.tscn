@@ -28,30 +28,34 @@ size_flags_vertical = 3
 color = Color( 0.117647, 0.0745098, 0.192157, 1 )
 
 [node name="TemplateHBox" type="HBoxContainer" parent="."]
-margin_right = 540.0
-margin_bottom = 173.0
+margin_left = 8.0
+margin_top = 24.0
+margin_right = 532.0
+margin_bottom = 952.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="NumberLabel" type="Label" parent="TemplateHBox"]
 margin_right = 86.0
-margin_bottom = 173.0
+margin_bottom = 928.0
 size_flags_vertical = 5
 text = "(1)"
 
 [node name="ArabicLabel" type="Label" parent="TemplateHBox"]
 margin_left = 90.0
-margin_right = 540.0
-margin_bottom = 173.0
+margin_right = 524.0
+margin_bottom = 928.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
 text = "ﻢِﻴَٰﺣۡﺮَّﻟﭐ ﻦِﻤَٰﺣۡﺮَّﻟﭐ ﻪِﻠَّﻟﭐ ﻢِﺴۡﺑِ
+ﻢِﻴَٰﺣۡﺮَّﻟﭐ ﻦِﻤَٰﺣۡﺮَّﻟﭐ ﻪِﻠَّﻟﭐ ﻢِﺴۡﺑِ
+ﻢِﻴَٰﺣۡﺮَّﻟﭐ ﻦِﻤَٰﺣۡﺮَّﻟﭐ ﻪِﻠَّﻟﭐ ﻢِﺴۡﺑِ
 ﻢِﻴَٰﺣۡﺮَّﻟﭐ ﻦِﻤَٰﺣۡﺮَّﻟﭐ ﻪِﻠَّﻟﭐ ﻢِﺴۡﺑِ"
 autowrap = true
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-arabic_input = "بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ"
+arabic_input = "بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ بِسۡمِ ٱللَّهِ ٱلرَّحۡمَٰنِ ٱلرَّحِيمِ"
