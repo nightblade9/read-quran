@@ -45,7 +45,7 @@ margin_left = 90.0
 margin_right = 540.0
 margin_bottom = 173.0
 size_flags_horizontal = 3
-size_flags_vertical = 6
+size_flags_vertical = 3
 custom_fonts/font = SubResource( 1 )
 text = "ﻢِﻴَٰﺣۡﺮَّﻟﭐ ﻦِﻤَٰﺣۡﺮَّﻟﭐ ﻪِﻠَّﻟﭐ ﻢِﺴۡﺑِ
 ﻢِﻴَٰﺣۡﺮَّﻟﭐ ﻦِﻤَٰﺣۡﺮَّﻟﭐ ﻪِﻠَّﻟﭐ ﻢِﺴۡﺑِ"
