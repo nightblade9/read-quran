@@ -1,10 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/fonts/Amiri-Bold.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://addons/arabic-text/ALabel.gd" type="Script" id=2]
 [ext_resource path="res://scenes/AyahHbox.gd" type="Script" id=3]
+[ext_resource path="res://assets/fonts/Lato-Black.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
 size = 48
 outline_size = 4
 outline_color = Color( 0, 0, 0, 1 )
@@ -31,8 +36,7 @@ __meta__ = {
 }
 
 [node name="TemplateHBox" type="HBoxContainer" parent="."]
-margin_left = 8.0
-margin_top = 24.0
+margin_top = 16.0
 margin_right = 532.0
 margin_bottom = 952.0
 size_flags_horizontal = 3
@@ -42,18 +46,19 @@ __meta__ = {
 }
 
 [node name="NumberLabel" type="Label" parent="TemplateHBox"]
-margin_right = 86.0
-margin_bottom = 928.0
+margin_right = 56.0
+margin_bottom = 936.0
 size_flags_vertical = 5
+custom_fonts/font = SubResource( 1 )
 text = "(1)"
 
 [node name="ArabicLabel" type="Label" parent="TemplateHBox"]
-margin_left = 90.0
-margin_right = 524.0
-margin_bottom = 928.0
+margin_left = 60.0
+margin_right = 532.0
+margin_bottom = 936.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 text = "ﺏِ"
 autowrap = true
 script = ExtResource( 2 )
