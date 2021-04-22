@@ -4,7 +4,7 @@ const ALabel = preload("res://addons/arabic-text/ALabel.gd")
 
 const _PAGES_DATA = "res://data/pages.json"
 onready var _template = $Template
-onready var _ayaat_container = $VBoxContainer
+onready var _ayaat_container = $ScrollContainer/VBoxContainer
 
 var _page:Array = [] # Page data, list of ayaat
 
