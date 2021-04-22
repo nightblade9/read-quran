@@ -7,6 +7,8 @@
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -50,7 +52,6 @@ margin_right = 56.0
 margin_bottom = 936.0
 size_flags_vertical = 5
 custom_fonts/font = SubResource( 1 )
-text = "(1)"
 
 [node name="ArabicLabel" type="Label" parent="TemplateHBox"]
 margin_left = 60.0
@@ -59,10 +60,10 @@ margin_bottom = 936.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
-text = "ﺏِ"
+text = "ﺏ"
 autowrap = true
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-arabic_input = "بِ"
+arabic_input = "ب"
