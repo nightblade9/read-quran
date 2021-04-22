@@ -12,7 +12,7 @@ script = ExtResource( 2 )
 [node name="PageNumberText" type="LineEdit" parent="."]
 margin_right = 384.0
 margin_bottom = 104.0
-text = "page"
+text = "600"
 __meta__ = {
 "_edit_use_anchors_": false
 }
