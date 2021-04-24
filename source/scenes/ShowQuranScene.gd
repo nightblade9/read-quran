@@ -20,10 +20,8 @@ func _ready():
 			var surah_data = _surah_names[ayah["surah_number"] - 1] # base 1 to base 0
 			var surah_name = surah_data["titleAr"]
 			var hbox = _create_entry(0, surah_name)
-			_ayaat_container.add_child(hbox)
 			
 		var hbox = _create_entry(ayah_number, ayah["arabic"])
-		_ayaat_container.add_child(hbox)
 
 # Called before ready
 func setup_surah(surah_number:int) -> void:
@@ -45,18 +43,12 @@ func setup_page(page_number:int) -> void:
 	
 func _create_entry(ayah_number:int, arabic_text:String) -> HBoxContainer:
 	var hbox = AyahHbox.instance()
-	hbox.visible = true
+	_ayaat_container.add_child(hbox)	
 	
-	var number_label =  hbox.get_node("TemplateHBox/NumberLabel")
-	if ayah_number > 0: # ayah
-		number_label.text = "(%s)" % ayah_number
-	else:
-		number_label.queue_free() # surah heading
-		
-	var arabic_label = hbox.get_node("TemplateHBox/ArabicLabel")
-	arabic_label.arabic_input = arabic_text
+	if ayah_number <= 0: # surah header
+		hbox.show_header()
 	
-	print("box %s: %s" % [ayah_number, arabic_text])
+	hbox.setup(ayah_number, arabic_text)
 	return hbox
 
 func _parse_surah_names():
