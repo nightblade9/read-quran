@@ -6,6 +6,7 @@ const AyahHbox = preload("res://scenes/AyahHbox.tscn")
 const _PAGES_DATA = "res://data/pages.json"
 const _SURAH_DATA = "res://data/surahs.json"
 
+onready var _scroll_container = $ScrollContainer
 onready var _ayaat_container = $ScrollContainer/VBoxContainer
 onready var _previous_button = $PreviousButton
 onready var _next_button = $NextButton
@@ -69,6 +70,9 @@ func _show_ayaat() -> void:
 	# Hide now that we templated them
 	_previous_button.visible = false
 	_next_button.visible = false
+	
+	# Reset scrollbar if it was scrolled
+	_scroll_container.scroll_vertical = 0
 	
 func _create_entry(ayah_number:int, arabic_text:String) -> HBoxContainer:
 	var hbox = AyahHbox.instance()
