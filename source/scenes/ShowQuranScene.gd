@@ -35,7 +35,7 @@ func setup_surah(surah_number:int) -> void:
 
 # Called before ready
 func setup_page(page_number:int) -> void:
-	var json_data = _parse_data()
+	_parse_data()
 	_page_number = page_number
 
 func _show_ayaat() -> void:
@@ -60,9 +60,9 @@ func _show_ayaat() -> void:
 			# Push surah name
 			var surah_data = _surah_names[ayah["surah_number"] - 1] # base 1 to base 0
 			var surah_name = surah_data["titleAr"]
-			var hbox = _create_entry(0, surah_name)
+			_create_entry(0, surah_name)
 			
-		var hbox = _create_entry(ayah_number, ayah["arabic"])
+		_create_entry(ayah_number, ayah["arabic"])
 	
 	if _page_number < len(_pages_data) - 1:
 		_ayaat_container.add_child(_next_button.duplicate())
@@ -76,7 +76,7 @@ func _show_ayaat() -> void:
 	
 func _create_entry(ayah_number:int, arabic_text:String) -> HBoxContainer:
 	var hbox = AyahHbox.instance()
-	_ayaat_container.add_child(hbox)	
+	_ayaat_container.add_child(hbox)
 	
 	if ayah_number <= 0: # surah header
 		hbox.show_header()
