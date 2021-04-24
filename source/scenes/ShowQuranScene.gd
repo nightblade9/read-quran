@@ -1,10 +1,10 @@
 extends Control
 
 const ALabel = preload("res://addons/arabic-text/ALabel.gd")
+const AyahHbox = preload("res://scenes/AyahHbox.tscn")
 
 const _PAGES_DATA = "res://data/pages.json"
 const _SURAH_DATA = "res://data/surahs.json"
-onready var _template = $Template
 onready var _ayaat_container = $ScrollContainer/VBoxContainer
 
 var _page:Array = [] # Page data, list of ayaat
@@ -12,9 +12,6 @@ var _surah_names:Array = []
 
 func _ready():
 	_parse_surah_names()
-	
-	remove_child(_template)
-	_template.visible = false
 	
 	for ayah in _page:
 		var ayah_number = ayah["ayah_number"]
@@ -27,10 +24,6 @@ func _ready():
 			
 		var hbox = _create_entry(ayah_number, ayah["arabic"])
 		_ayaat_container.add_child(hbox)
-		#break # uncommment this to see jankiness
-		
-	_template.queue_free()
-	_ayaat_container.remove_child(_ayaat_container.get_child(0))
 
 # Called before ready
 func setup_surah(surah_number:int) -> void:
@@ -51,7 +44,7 @@ func setup_page(page_number:int) -> void:
 	_page = json_data[page_number]
 	
 func _create_entry(ayah_number:int, arabic_text:String) -> HBoxContainer:
-	var hbox = _template.duplicate()
+	var hbox = AyahHbox.instance()
 	hbox.visible = true
 	
 	var number_label =  hbox.get_node("TemplateHBox/NumberLabel")
@@ -60,7 +53,7 @@ func _create_entry(ayah_number:int, arabic_text:String) -> HBoxContainer:
 	else:
 		number_label.queue_free() # surah heading
 		
-	var arabic_label = _template.get_node("TemplateHBox/ArabicLabel")
+	var arabic_label = hbox.get_node("TemplateHBox/ArabicLabel")
 	arabic_label.arabic_input = arabic_text
 	
 	print("box %s: %s" % [ayah_number, arabic_text])
