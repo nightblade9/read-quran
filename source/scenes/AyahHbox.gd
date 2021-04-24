@@ -1,6 +1,7 @@
 extends Control
 
 onready var _background = $ColorRect
+onready var _hbox_container = $HBoxContainer
 onready var _number_label = $HBoxContainer/NumberLabel
 onready var _arabic_label = $HBoxContainer/ArabicLabel
 
@@ -24,5 +25,13 @@ func setup(ayah_number:int, arabic_text:String) -> void:
 func show_header():
 	_number_label.queue_free()
 	_background.color = _HEADER_COLOUR
-	pass # TODO: font override/bigger somehow
-	# TODO: center text, too
+	_arabic_label.align = Label.ALIGN_CENTER
+	
+	# Increase font size
+	var font = _arabic_label.get_font("font", "")
+	font = font.duplicate()
+	font.set_size(96)
+	_arabic_label.add_font_override("font", font)
+
+	# Remove space at the top so text isn't clipped on the bottom
+	_hbox_container.margin_top = -30
