@@ -38,6 +38,7 @@ func setup_page(page_number:int) -> void:
 	_page_number = page_number
 
 func _show_ayaat() -> void:
+	# Show, duplicate, and re-hide later
 	_previous_button.visible = true
 	_next_button.visible = true
 	
@@ -47,7 +48,8 @@ func _show_ayaat() -> void:
 	for child in _ayaat_container.get_children():
 		_ayaat_container.remove_child(child)
 	
-	_ayaat_container.add_child(_previous_button.duplicate())
+	if _page_number > 1:
+		_ayaat_container.add_child(_previous_button.duplicate())
 		
 	_page = _pages_data[_page_number]
 	
@@ -60,8 +62,11 @@ func _show_ayaat() -> void:
 			var hbox = _create_entry(0, surah_name)
 			
 		var hbox = _create_entry(ayah_number, ayah["arabic"])
-		
-	_ayaat_container.add_child(_next_button.duplicate())
+	
+	if _page_number < len(_pages_data) - 1:
+		_ayaat_container.add_child(_next_button.duplicate())
+	
+	# Hide now that we templated them
 	_previous_button.visible = false
 	_next_button.visible = false
 	
@@ -97,4 +102,6 @@ func _on_PreviousButton_pressed():
 	_show_ayaat()
 
 func _on_NextButton_pressed():
-	pass # Replace with function body.
+	if _page_number < len(_pages_data) - 1:
+		_page_number += 1
+	_show_ayaat()
