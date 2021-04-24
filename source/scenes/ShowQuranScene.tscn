@@ -27,3 +27,17 @@ size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="PreviousButton" type="Button" parent="."]
+margin_right = 540.0
+margin_bottom = 94.0
+text = "607>"
+
+[node name="NextButton" type="Button" parent="."]
+margin_top = 98.0
+margin_right = 540.0
+margin_bottom = 192.0
+text = "< 609"
+
+[connection signal="pressed" from="PreviousButton" to="." method="_on_PreviousButton_pressed"]
+[connection signal="pressed" from="NextButton" to="." method="_on_NextButton_pressed"]
