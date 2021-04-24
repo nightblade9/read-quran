@@ -5,9 +5,10 @@ onready var _number_label = $HBoxContainer/NumberLabel
 onready var _arabic_label = $HBoxContainer/ArabicLabel
 
 func _ready():
-	_background.color.r = randf() * 0.40
-	_background.color.g = randf() * 0.50
-	_background.color.b = randf() * 0.65
+	var intensity = 0.1 + (randf() * 0.2)
+	_background.color.r = intensity
+	_background.color.g = intensity + 0.15
+	_background.color.b = intensity + 0.30
 
 	# Expand to fit contents; +N so tashkeel (kasra) don't get cut off
 	self.rect_min_size.y = _arabic_label.get_minimum_size().y + 20
