@@ -1,6 +1,5 @@
 extends Control
 
-onready var _background = $ColorRect
 onready var _hbox_container = $HBoxContainer
 onready var _number_label = $HBoxContainer/NumberLabel
 onready var _arabic_label = $HBoxContainer/ArabicLabel
@@ -8,11 +7,10 @@ onready var _arabic_label = $HBoxContainer/ArabicLabel
 const _HEADER_COLOUR:Color = Color(0.15, 0.15, 0.15)
 
 func _ready():
-	if _background.color != _HEADER_COLOUR: # not header
-		var intensity = 0.1 + (randf() * 0.2)
-		_background.color.r = intensity
-		_background.color.g = intensity + 0.15
-		_background.color.b = intensity + 0.30
+	# Unique stylebox for unique background
+	var stylebox:StyleBoxFlat = _arabic_label.get_stylebox("normal").duplicate()
+	_arabic_label.add_stylebox_override("normal", stylebox)
+
 
 # Called after _ready
 func setup(ayah_number:int, arabic_text:String) -> void:
@@ -24,7 +22,7 @@ func setup(ayah_number:int, arabic_text:String) -> void:
 	
 func show_header():
 	_number_label.queue_free()
-	_background.color = _HEADER_COLOUR
+	_arabic_label.get_stylebox("normal").bg_color = _HEADER_COLOUR
 	_arabic_label.align = Label.ALIGN_CENTER
 	
 	# Increase font size
